@@ -1,9 +1,10 @@
 $(function() {
+  var tasks;
   //show list of to-dos if in storage
   if (localStorage.tasks) {
-    var tasks = JSON.parse(localStorage.tasks);
+    tasks = JSON.parse(localStorage.tasks);
   }else {
-    var tasks = [];
+    tasks = [];
   }
   
   function addTaskToList(val) {
@@ -12,9 +13,10 @@ $(function() {
       $('#list').append("<li class='listItem align-right'>" + val +  
       "<a href='#' class='cancel-btn'>Cancel Task</a>" +
       "<a href='#' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a></li>");
+      $('li:odd').css('float', 'right');
+      $('li:even').css('float', 'left');
     } 
   }
-  
   //iterate and add to-do value to list
   for(var i=0;i<tasks.length;i++) {
     addTaskToList(tasks[i]);
@@ -28,14 +30,14 @@ $(function() {
     tasks.push(val);
     
     // save to local storage
-    localStorage["tasks"] = JSON.stringify(tasks);
+    localStorage.tasks = JSON.stringify(tasks);
     
     // append the to-do to the list
     addTaskToList(val);
     
     // reset the input field and focus it.
     $('#todo').val("").focus();
-  }
+  };
   
   $('#add-btn').on(addTask);
   $('#todo').keyup(function(event) {
@@ -54,6 +56,6 @@ $(function() {
   
   $('#plusBtn').on('click', function() {
     $('#todo').fadeIn();
-  })
+  });
   
 });
