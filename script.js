@@ -9,7 +9,7 @@ $(function() {
   function addTaskToList(val) {
     //check for empty inputs and spaces
     if(val.length>0 && val.trim()) {
-      $('#list').append("<li>" + val + "  <a href='#' class='done-btn'>Done</a>" + " " + "<a href='#' class='cancel-btn'>Cancel Task</a></li>");
+      $('#list').append("<li class='listItem align-right'>" + val + "  <a href='#' class='done-btn'><i class='fa fa-check-circle-o' aria-hidden='true'></i></a>" + " " + "<a href='#' class='cancel-btn'>Cancel Task</a></li>");
     } 
   }
   
@@ -18,7 +18,7 @@ $(function() {
     addTaskToList(tasks[i]);
   }
   
-  var addTask = function(){
+  var addTask = function() {
     // get value from #todo input
     var val = $('#todo').val();
     
@@ -36,8 +36,8 @@ $(function() {
   }
   
   $('#add-btn').on(addTask);
-  $('#todo').keyup(function(e){
-    if (e.keyCode === 13) {
+  $('#todo').keyup(function(event) {
+    if (event.keyCode === 13) {
       addTask();
     }
   });
@@ -49,5 +49,9 @@ $(function() {
   $('.cancel-btn').on( 'click', function() {
     $(this).parent('li').fadeOut();
   });
+  
+  $('#plusBtn').on('click', function() {
+    $('#todo').fadeIn();
+  })
   
 });
