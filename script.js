@@ -9,7 +9,9 @@ $(function() {
   function addTaskToList(val) {
     //check for empty inputs and spaces
     if(val.length>0 && val.trim()) {
-      $('#list').append("<li class='listItem align-right'>" + val + "  <a href='#' class='done-btn'><i class='fa fa-check-circle-o' aria-hidden='true'></i></a>" + " " + "<a href='#' class='cancel-btn'>Cancel Task</a></li>");
+      $('#list').append("<li class='listItem align-right'>" + val +  
+      "<a href='#' class='cancel-btn'>Cancel Task</a>" +
+      "<a href='#' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a></li>");
     } 
   }
   
@@ -43,7 +45,7 @@ $(function() {
   });
   
   $('.done-btn').on( 'click', function() {
-    $(this).parent('li').addClass('done');
+    $(this).parent('li').toggleClass('done');
   });    
   
   $('.cancel-btn').on( 'click', function() {
