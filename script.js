@@ -49,6 +49,9 @@ $(function() {
   }
   
   var addTask = function() {
+    $('#todo').on('click', function() {
+      $('#todo').attr('autofocus');
+    });
     // get value from #todo input
     var val = $('#todo').val();
     
@@ -75,6 +78,7 @@ $(function() {
     //event = return key up
     if (event.keyCode === 13) {
       addTask();
+      $('#todo').fadeOut();
     }
   });   
   
