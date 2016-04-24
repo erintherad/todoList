@@ -48,6 +48,11 @@ $(function() {
   
   $('.done-btn').on( 'click', function() {
     $(this).parent('li').toggleClass('done');
+    if ($(this).parent('li').hasClass('done')) {
+      $('.notification').fadeIn();
+    } else {
+      $('.notification').fadeOut();
+    }
   });    
   
   $('.cancel-btn').on( 'click', function() {
@@ -61,7 +66,10 @@ $(function() {
   $('.markAll').on('click', function() {
     $( "li" ).each(function( index ) {
       $( "li" ).toggleClass('done');
+      $('.notification').fadeIn();
     });
   });
-  
+  $('.closeNotification').on('click', function () {
+    $('.notification').fadeOut(400);
+  });
 });
