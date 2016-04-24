@@ -1,20 +1,19 @@
 $(function() {
-  var tasks;
   //show list of to-dos if in storage
   if (localStorage.tasks) {
-    tasks = JSON.parse(localStorage.tasks);
+    var tasks = JSON.parse(localStorage.tasks);
   }else {
-    tasks = [];
+    var tasks = [];
   }
   
   function addTaskToList(val) {
     //check for empty inputs and spaces
     if(val.length>0 && val.trim()) {
       $('#list').append("<li class='listItem align-right'>" + val +  
-      "<a href='#' class='cancel-btn'>Cancel Task</a>" +
-      "<a href='#' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a></li>");
-      $('li:odd').css('float', 'right');
-      $('li:even').css('float', 'left');
+      "<a href='javascript:void(0)' class='cancel-btn'>Cancel Task</a>" +
+      "<a href='javascript:void(0)' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a></li>");
+      $('li:odd').addClass('left');
+      $('li:even').addClass('right');
     } 
   }
   //iterate and add to-do value to list
@@ -41,6 +40,7 @@ $(function() {
   
   $('#add-btn').on(addTask);
   $('#todo').keyup(function(event) {
+    //event = return key up
     if (event.keyCode === 13) {
       addTask();
     }
