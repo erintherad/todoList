@@ -31,7 +31,8 @@ $(function() {
       newListItem.addClass('done');
     }
 
-    var doneButton = $("<a href='javascript:void(0)' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a>");
+    var doneButton = $("<a href='javascript:void(0)' class='done-btn'>"+ 
+    "<i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a>");
     addDoneClickHandler(doneButton);
     newListItem.append(doneButton);
     
