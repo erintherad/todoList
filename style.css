@@ -1,0 +1,155 @@
+body {
+  background-color: #EBEEEF;
+  color: #4C626D;
+}
+
+#todo {
+  display: none;
+}
+
+#list {
+  width: 100%;
+  margin: auto;
+}
+
+.markAll {
+  padding-top: 40px;
+  color: rgb(74, 190, 116);
+  text-align: right;
+}
+
+.markAll a {
+  color: rgb(74, 190, 116);
+}
+
+.listContainer h2 {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+.listItem {
+  width: 50%;
+  height: 25%;
+  background-color: white;
+  border-style: solid;
+  border-width: .1em;
+  border-color: #CCCCCC;
+  padding: 10px;
+  list-style: none;
+}
+
+@media only screen and (max-width: 50em) { 
+  .listItem {
+    border-width: .1em !important;
+  }
+  .left {
+    left: 0% !important;
+    width: 100%;
+  }
+  .left:before {
+    content: none !important;
+  }
+  .right {
+    left: 0% !important;
+    width: 100%;
+  }
+  .right:before {
+    content: none !important;
+  }
+}
+
+.left { 
+  position: relative;
+  left: 49.9%;
+}
+
+.left:before {
+  content: "\f0da";
+  font-family: FontAwesome;
+  font-size: 1.5em;
+  color: #CCCCCC;
+  position: absolute;
+  left: 0%;
+  top: 10%;
+}
+
+.right { 
+  position: relative; 
+}
+
+.right:before {
+  content: "\f0d9";
+  font-family: FontAwesome;
+  font-size: 1.5em;
+  color: #CCCCCC;
+  position: absolute;
+  right: 0%;
+  top: 10%;
+}
+
+.makeTodoForm {
+  clear: both;
+}
+
+.done {
+  color: #AFB9BF;
+}
+.done .fa-check-circle-o {
+  color: #35BA67;
+}
+
+.fa-check-circle-o {
+  float: right;
+  color: #CCCCCC;
+}
+
+.makeTodoForm h2 {
+  float: left;
+  margin-top: 30px;
+}
+
+.fa-plus-square-o {
+  margin-top: 20px;
+  float: right;
+  left: -50%;
+  position: relative;
+  color: rgb(158, 44, 205);
+}
+
+@media only screen and (max-width: 800px) { 
+  .fa-plus-square-o {
+    float: right;
+    left: 0%;
+  }
+  .notification {
+    width: 100% !important;
+    left: 0% !important;
+  }
+}
+
+.notification {
+  z-index: 2;
+  display: none;
+  text-align: center;
+  left: 25%;
+  width: 50%;
+  position: fixed;
+  margin: auto;
+  padding: 5px 5px;
+  background-color: rgb(74, 190, 116);
+}
+.notification i {
+  display: inline-block;
+  float: right;
+  text-align: right;
+  margin-right: 30px;
+  margin-top: 5px;
+}
+
+.notification a {
+  color: #1f8241;
+}
+
+.notification p {
+  display: inline-block;  
+}
