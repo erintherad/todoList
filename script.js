@@ -87,11 +87,16 @@ $(function() {
   });
   
   $('.markAll').on('click', function() {
-    $( "li" ).each(function( index ) {
-      $( "li" ).addClass('done');
-      $('.notification').fadeIn();
+    $("li.listItem").each(function() {
+      var taskIndex = $(this).attr('data-task-index');
+      var task = tasks[taskIndex];
+      task.done = true;
+      $(this).addClass('done');
     });
+    $('.notification').fadeIn();
+    localStorage.tasks = JSON.stringify(tasks);
   });
+  
   $('.closeNotification').on('click', function () {
     $('.notification').fadeOut(400);
   });
