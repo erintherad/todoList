@@ -1,3 +1,4 @@
+/* GLOBAL STYLING */
 body {
   background-color: #EBEEEF;
   color: #4C626D;
@@ -12,7 +13,11 @@ body {
   margin: auto;
 }
 
+
+/* HEADER STYLING */
+
 .markAll {
+  width: 100%;
   padding-top: 40px;
   color: rgb(74, 190, 116);
   text-align: right;
@@ -21,6 +26,21 @@ body {
 .markAll a {
   color: rgb(74, 190, 116);
 }
+
+.deleteAll {
+  margin-top: 30px;
+  margin-bottom: -30px;
+  width: 100%;
+  text-align: right;
+  color: #cc2c2c;
+}
+
+.deleteAll a {
+  color: #cc2c2c;
+}
+
+
+/* LIST STYLING */
 
 .listContainer h2 {
   font-size: 1.2em;
@@ -36,26 +56,6 @@ body {
   border-color: #CCCCCC;
   padding: 10px;
   list-style: none;
-}
-
-@media only screen and (max-width: 50em) { 
-  .listItem {
-    border-width: .1em !important;
-  }
-  .left {
-    left: 0% !important;
-    width: 100%;
-  }
-  .left:before {
-    content: none !important;
-  }
-  .right {
-    left: 0% !important;
-    width: 100%;
-  }
-  .right:before {
-    content: none !important;
-  }
 }
 
 .left { 
@@ -116,27 +116,20 @@ body {
   color: rgb(158, 44, 205);
 }
 
-@media only screen and (max-width: 800px) { 
-  .fa-plus-square-o {
-    float: right;
-    left: 0%;
-  }
-  .notification {
-    width: 100% !important;
-    left: 0% !important;
-  }
-}
+
+/* NOTIFICATION STYLING */
 
 .notification {
   z-index: 2;
   display: none;
   text-align: center;
-  left: 25%;
-  width: 50%;
+  left: 0%;
+  top: 0%;
+  width: 100%;
   position: fixed;
   margin: auto;
-  padding: 5px 5px;
-  background-color: rgb(74, 190, 116);
+  padding: 35px;
+  background-color: #35BA67;
 }
 .notification i {
   display: inline-block;
@@ -152,4 +145,68 @@ body {
 
 .notification p {
   display: inline-block;  
+}
+
+.notificationAdd {
+  z-index: 2;
+  display: none;
+  text-align: center;
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  position: fixed;
+  margin: auto;
+  padding: 35px;
+  background-color: #9E2CCD;
+}
+.notificationAdd i {
+  display: inline-block;
+  float: right;
+  text-align: right;
+  margin-right: 30px;
+  margin-top: 5px;
+}
+
+.notificationAdd a {
+  color: #1f8241;
+}
+
+.notificationAdd p {
+  display: inline-block;
+  color: white;  
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 800px) { 
+  .listItem {
+    border-width: .1em !important;
+  }
+  .left {
+    left: 0% !important;
+    width: 100%;
+  }
+  .left:before {
+    content: none !important;
+  }
+  .right {
+    left: 0% !important;
+    width: 100%;
+  }
+  .right:before {
+    content: none !important;
+  }
+  .fa-plus-square-o {
+    float: right;
+    left: 0%;
+  }
+  .notification {
+    width: 100% !important;
+    left: 0% !important;
+  }
+  .notificationAdd {
+    width: 100% !important;
+    left: 0% !important;
+  }
 }

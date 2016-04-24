@@ -6,6 +6,7 @@ $(function() {
     var tasks = [];
   }
   
+  //allows done feature to toggle
   function addDoneClickHandler(doneButton) {
     doneButton.on('click', function() {
       var taskIndex = $(this).parent('li').attr('data-task-index');
@@ -14,7 +15,7 @@ $(function() {
       $(this).parent('li').toggleClass('done');
       if ($(this).parent('li').hasClass('done')) {
         task.done = true;
-        $('.notification').fadeIn();
+        $('.notification').fadeIn().fadeOut(2000);
       } else {
         task.done = false;
         $('.notification').fadeOut();
@@ -24,6 +25,7 @@ $(function() {
     });
   }
   
+  //adds new li
   function addTaskToList(newTask, taskIndex) {
     var newListItem = $("<li class='listItem align-right'>" + newTask.text + "</li>");
     newListItem.attr('data-task-index', taskIndex);
@@ -43,15 +45,14 @@ $(function() {
       $('li:even').addClass('right');
     } 
   }
+  
   //iterate and add to-do value to list
   for(var i = 0; i < tasks.length; i++) {
     addTaskToList(tasks[i], i);
   }
   
+  //adds to localStorage
   var addTask = function() {
-    $('#todo').on('click', function() {
-      $('#todo').attr('autofocus');
-    });
     // get value from #todo input
     var val = $('#todo').val();
     
@@ -73,23 +74,23 @@ $(function() {
     $('#todo').val("").focus();
   };
   
+  //upon entering a new task
   $('#add-btn').on(addTask);
   $('#todo').keyup(function(event) {
     //event = return key up
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13) {;
       addTask();
       $('#todo').fadeOut();
+      $('.notificationAdd').fadeIn().fadeOut(2000);
     }
   });   
   
-  $('.cancel-btn').on( 'click', function() {
-    $(this).parent('li').fadeOut();
-  });
-  
+  //toggles task input
   $('#plusBtn').on('click', function() {
     $('#todo').fadeToggle();
   });
   
+  //marks all tasks in list
   $('.markAll').on('click', function() {
     $("li.listItem").each(function() {
       var taskIndex = $(this).attr('data-task-index');
@@ -97,11 +98,12 @@ $(function() {
       task.done = true;
       $(this).addClass('done');
     });
-    $('.notification').fadeIn();
+    $('.notification').fadeIn().fadeOut(2000);
     localStorage.tasks = JSON.stringify(tasks);
   });
   
-  $('.closeNotification').on('click', function () {
-    $('.notification').fadeOut(400);
+  $('.deleteAll').on('click', function() {
+    localStorage.clear();
+    location.reload();
   });
 });
