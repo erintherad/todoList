@@ -10,14 +10,14 @@ $(function() {
     //check for empty inputs and spaces
     if(val.length>0 && val.trim()) {
       $('#list').append("<li class='listItem align-right'>" + val +  
-      "<a href='javascript:void(0)' class='cancel-btn'>Cancel Task</a>" +
+      // "<a href='javascript:void(0)' class='cancel-btn'>Cancel Task</a>" +
       "<a href='javascript:void(0)' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a></li>");
       $('li:odd').addClass('left');
       $('li:even').addClass('right');
     } 
   }
   //iterate and add to-do value to list
-  for(var i=0;i<tasks.length;i++) {
+  for(var i = 0; i < tasks.length; i++) {
     addTaskToList(tasks[i]);
   }
   
@@ -55,7 +55,14 @@ $(function() {
   });
   
   $('#plusBtn').on('click', function() {
-    $('#todo').fadeIn();
+    $('#todo').fadeToggle();
   });
   
+  $('.markAll').on('click', function() {
+    for( var i = 0; i < tasks.length; i++) {
+      var allTasks = tasks[i];
+      console.log(allTasks);
+      // allTasks.addClass('done');
+    }
+  });
 });
