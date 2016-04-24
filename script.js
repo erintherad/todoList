@@ -59,10 +59,9 @@ $(function() {
   });
   
   $('.markAll').on('click', function() {
-    for( var i = 0; i < tasks.length; i++) {
-      var allTasks = tasks[i];
-      console.log(allTasks);
-      // allTasks.addClass('done');
-    }
+    $( "li" ).each(function( index ) {
+      $( "li" ).toggleClass('done');
+    });
   });
+  
 });
