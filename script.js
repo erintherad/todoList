@@ -6,12 +6,26 @@ $(function() {
     var tasks = [];
   }
   
+  function addDoneClickHandler(doneButton) {
+    doneButton.on('click', function() {
+      $(this).parent('li').toggleClass('done');
+      if ($(this).parent('li').hasClass('done')) {
+        $('.notification').fadeIn();
+      } else {
+        $('.notification').fadeOut();
+      }
+    });
+  }
+  
   function addTaskToList(val) {
+    var newListItem = $("<li class='listItem align-right'>" + val + "</li>");
+    var doneButton = $("<a href='javascript:void(0)' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a>");
+    addDoneClickHandler(doneButton);
+    newListItem.append(doneButton);
+    
     //check for empty inputs and spaces
     if(val.length>0 && val.trim()) {
-      $('#list').append("<li class='listItem align-right'>" + val +  
-      // "<a href='javascript:void(0)' class='cancel-btn'>Cancel Task</a>" +
-      "<a href='javascript:void(0)' class='done-btn'><i class='fa fa-check-circle-o fa-2x' aria-hidden='true'></i></a></li>");
+      $('#list').append(newListItem);
       $('li:odd').addClass('left');
       $('li:even').addClass('right');
     } 
@@ -44,16 +58,7 @@ $(function() {
     if (event.keyCode === 13) {
       addTask();
     }
-  });
-  
-  $('.done-btn').on( 'click', function() {
-    $(this).parent('li').toggleClass('done');
-    if ($(this).parent('li').hasClass('done')) {
-      $('.notification').fadeIn();
-    } else {
-      $('.notification').fadeOut();
-    }
-  });    
+  });   
   
   $('.cancel-btn').on( 'click', function() {
     $(this).parent('li').fadeOut();
@@ -65,7 +70,7 @@ $(function() {
   
   $('.markAll').on('click', function() {
     $( "li" ).each(function( index ) {
-      $( "li" ).toggleClass('done');
+      $( "li" ).addClass('done');
       $('.notification').fadeIn();
     });
   });
