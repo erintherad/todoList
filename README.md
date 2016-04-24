@@ -16,6 +16,6 @@ It utilizes:
 To run or use this app:
 
 1. [Fork it](https://github.com/erintherad/todoList)
-2. Clone it: <code>git clone git@github.com:erintherad/todoList.git<code>
+2. Clone it
 3. Run a simple server such as <code>http-server<code>
 
